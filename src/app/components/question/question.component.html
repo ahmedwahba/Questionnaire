@@ -1,0 +1,55 @@
+ <!-- question details -->
+ <div class="main-card">
+  <div class="desc">
+    <h3 class="mb-0">
+      <span class="required">*</span>
+      Um Dein persönliches Privathaftpflichtversicherungs-Angebot zu erstellen,
+      benötigen wir noch ein paar Informationen von Dir.
+    </h3>
+  </div>
+  <div class="input-wrapper">
+    <app-input-radio-control
+      [id]="'test-id'"
+      name="testname"
+      label="testname"
+      [value]="'value'"
+      [checked]="true"
+      (itemClick)="onSelectOption('value')"
+    ></app-input-radio-control>
+  </div>
+  <div class="input-wrapper">
+    <app-input-radio-control
+      [id]="'test-id2'"
+      name="testname"
+      label="testname2"
+      [value]="'value2'"
+      [checked]="false"
+      (itemClick)="onSelectOption('value2')"
+    ></app-input-radio-control>
+  </div>
+  <div class="input-wrapper">
+    <app-input-checkbox-control
+    [id]="'test-id3'"
+    label="testname3"
+    [value]="'value3'"
+    [checked]="true"
+    (itemClick)="onSelectOption('value3')"
+    ></app-input-checkbox-control>
+  </div>
+  <div class="input-wrapper">
+    <app-input-checkbox-control
+    [id]="'test-id4'"
+    label="testname4"
+    [value]="'value4'"
+    [checked]="true"
+    (itemClick)="onSelectOption('value4')"
+    ></app-input-checkbox-control>
+  </div>
+  <div class="controls">
+    <button class="btn btn-left"> Previos </button>
+    <button class="btn btn-right"> next </button>
+  </div>
+  <div class="start-btn">
+    <button class="btn"> finish </button>
+  </div>
+</div>

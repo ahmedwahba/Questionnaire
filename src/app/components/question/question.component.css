@@ -1,0 +1,29 @@
+/* question */
+.required {
+  color: #f00;
+}
+.input-wrapper {
+  text-align: left;
+  padding-left: 16px;
+  line-height: 2;
+}
+
+.controls {
+  width: 95%;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  position: relative;
+  display: block;
+  min-height: 55px;
+}
+
+.controls .btn-left {
+  position: absolute;
+  left: 0px;
+}
+
+.controls .btn-right {
+  position: absolute;
+  right: 0px;
+}

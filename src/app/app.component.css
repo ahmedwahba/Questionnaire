@@ -1,0 +1,29 @@
+
+/* left side  */
+.col-3 {
+  flex: 0 1 0%;
+  position: relative;
+  height: 100vh;
+  display: none;
+  background: #f7f7f7;
+}
+
+@media screen and (min-width: 769px) {
+  .col-3 {
+    display: block;
+  }
+}
+
+.logo {
+  margin: auto;
+}
+
+.logo img {
+  width: 80%;
+}
+
+.title {
+  padding: 16px;
+  overflow-wrap: break-word;
+}
+

@@ -1,0 +1,10 @@
+
+.title.mid {
+  display: block;
+  color: #ffff;
+}
+@media screen and (min-width: 769px) {
+  .title.mid {
+    display: none;
+  }
+}
