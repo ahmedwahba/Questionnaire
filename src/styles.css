@@ -22,13 +22,14 @@
 
 .btn {
   padding: 16px;
-  border-radius: 50px;
+  border-radius: 25px;
   font-size: larger;
   font-weight: bold;
   background: rgba(0,0,0,0.7);
   color: #ffff;
   text-transform: capitalize;
   border: 1px solid #eeeeee;
+  cursor: pointer;
 }
 
 .mb-0 {
