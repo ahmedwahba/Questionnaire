@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-checkbox-control',
   templateUrl: './input-checkbox-control.component.html',
   styleUrls: ['./input-checkbox-control.component.css']
 })
-export class InputCheckboxControlComponent implements ControlValueAccessor, OnInit {
+export class InputCheckboxControlComponent {
 
   @Input() value: string;
   @Input() name: string;
@@ -16,33 +15,9 @@ export class InputCheckboxControlComponent implements ControlValueAccessor, OnIn
 
   @Output() itemClick: EventEmitter<any> = new EventEmitter<any>();
 
-  propagateChange = (_: any): any => { }
-
-
   constructor() { }
 
-  writeValue (obj: any): void {
-    if (obj !== undefined) {
-      this.value = obj;
-    }
-  }
-
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.propagateChange = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
-  }
-
-  ngOnInit() {
-  }
-
-  handleChange (): void {
+  handleChange(): void {
     this.itemClick.emit(this.value);
   }
 
