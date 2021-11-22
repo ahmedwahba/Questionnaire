@@ -8,14 +8,35 @@
   line-height: 2;
 }
 
+.text-wrapper {
+  overflow: hidden;
+  padding-right: 16px;
+}
+
+.input-text {
+  text-align: left;
+  width: 94%;
+  padding: 16px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: larger;
+}
+
+.input-text:focus-visible {
+  outline: none;
+}
+
 .controls {
   width: 95%;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 16px;
+  margin: 16px;
   position: relative;
   display: block;
-  min-height: 55px;
+  min-height: 71px;
+}
+
+.controls button {
+  min-width: 100px;
 }
 
 .controls .btn-left {

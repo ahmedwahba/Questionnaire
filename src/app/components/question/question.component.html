@@ -1,55 +1,53 @@
  <!-- question details -->
- <div class="main-card">
+ <ng-container *ngFor="let question of questions;let i = index" >
+ <div class="main-card" *ngIf="i == currentIndex" @fade>
   <div class="desc">
     <h3 class="mb-0">
-      <span class="required">*</span>
-      Um Dein persönliches Privathaftpflichtversicherungs-Angebot zu erstellen,
-      benötigen wir noch ein paar Informationen von Dir.
+      <span *ngIf="question.required"  class="required">*</span>
+      {{ question.headline }}
     </h3>
   </div>
-  <div class="input-wrapper">
-    <app-input-radio-control
-      [id]="'test-id'"
-      name="testname"
-      label="testname"
-      [value]="'value'"
-      [checked]="true"
-      (itemClick)="onSelectOption('value')"
-    ></app-input-radio-control>
-  </div>
-  <div class="input-wrapper">
-    <app-input-radio-control
-      [id]="'test-id2'"
-      name="testname"
-      label="testname2"
-      [value]="'value2'"
-      [checked]="false"
-      (itemClick)="onSelectOption('value2')"
-    ></app-input-radio-control>
-  </div>
-  <div class="input-wrapper">
-    <app-input-checkbox-control
-    [id]="'test-id3'"
-    label="testname3"
-    [value]="'value3'"
-    [checked]="true"
-    (itemClick)="onSelectOption('value3')"
-    ></app-input-checkbox-control>
-  </div>
-  <div class="input-wrapper">
-    <app-input-checkbox-control
-    [id]="'test-id4'"
-    label="testname4"
-    [value]="'value4'"
-    [checked]="true"
-    (itemClick)="onSelectOption('value4')"
-    ></app-input-checkbox-control>
-  </div>
+  <ng-container *ngIf="questionType.multipleChoice == question.question_type" >
+    <div class="input-wrapper" *ngFor="let choice of question.choices;let choiceIndex = index" >
+      <app-input-radio-control
+        *ngIf="question.multiple == 'false'"
+        [id]="question.identifier + choice.value"
+        [name]="question.identifier"
+        [label]="choice.label"
+        [value]="choice.value"
+        [checked]="choice.selected"
+        (itemClick)="onSelectOption(choiceIndex)"
+      ></app-input-radio-control>
+      <app-input-checkbox-control
+        *ngIf="question.multiple == 'true'"
+        [id]="question.identifier + choice.value"
+        [label]="choice.label"
+        [value]="choice.value"
+        [(checked)]="choice.selected"
+        (itemClick)="onSelectOption(choiceIndex)"
+      ></app-input-checkbox-control>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="questionType.text == question.question_type" >
+    <div class="input-wrapper text-wrapper">
+      <textarea [(ngModel)]="question.description" (ngModelChange)="onTextInputChange(question.description)" class="input-text"></textarea>
+    </div>
+  </ng-container>
+
   <div class="controls">
-    <button class="btn btn-left"> Previos </button>
-    <button class="btn btn-right"> next </button>
+    <button
+      *ngIf="currentIndex != 0"
+      (click)="onPreviousClick()"
+      class="btn btn-left"> früher
+    </button>
+    <button
+      *ngIf="currentIndex != questions.length - 1"
+      (click)="onNextClick()"
+      class="btn btn-right"> nächste
+    </button>
   </div>
-  <div class="start-btn">
-    <button class="btn"> finish </button>
+  <div class="start-btn" *ngIf="quizFinished" >
+    <button (click)="finishQuiz()" class="btn"> Beenden Sie den Fragebogen </button>
   </div>
 </div>
+</ng-container>
