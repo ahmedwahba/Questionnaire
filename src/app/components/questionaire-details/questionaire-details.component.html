@@ -1,15 +1,14 @@
- <!-- questionaire detals  -->
-    <div class="main-card">
-      <div class="title mid">
-        <h2 class="title"> Privathaftpflichtversicherung </h2>
-      </div>
-      <div class="desc">
-        <h3>
-          Um Dein persönliches Privathaftpflichtversicherungs-Angebot zu erstellen,
-          benötigen wir noch ein paar Informationen von Dir.
-        </h3>
-      </div>
-      <div class="start-btn">
-        <button class="btn"> start </button>
-      </div>
-    </div>
+<!-- questionaire detals  -->
+<div class="main-card">
+  <div class="title mid">
+    <h2 class="title">{{ questionaire.name }}</h2>
+  </div>
+  <div class="desc">
+    <h3>
+      {{ questionaire.description }}
+    </h3>
+  </div>
+  <div class="start-btn">
+    <button (click)="onStartClick()" class="btn">start</button>
+  </div>
+</div>
