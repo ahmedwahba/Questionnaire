@@ -25,7 +25,7 @@ export class QuestionComponent implements OnInit {
   answeredCount = 0;
   viewedCount = 0;
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(public route: ActivatedRoute, private location: Location) {}
 
   ngOnInit() {
     this.route.data.pipe(take(1)).subscribe((res) => {
@@ -34,7 +34,6 @@ export class QuestionComponent implements OnInit {
         this.requiredCount = this.questions.filter(
           (question) => question.required === true
         ).length;
-        console.log('c', this.requiredCount);
       }
     });
   }
@@ -76,7 +75,6 @@ export class QuestionComponent implements OnInit {
   onNextClick(): void {
     if (this.currentIndex < this.questions.length - 1) {
       this.markQuestionAsViewed();
-      console.log('cuuuuu', this.questions[this.currentIndex]);
       this.checkNextQuestionOrder(this.questions[this.currentIndex]);
       this.currentIndex += 1;
     }
